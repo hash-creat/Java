@@ -1,5 +1,7 @@
 package DataStructures.Stacks;
 
+import java.util.Arrays;
+
 /**
  * This class implements a Stack using a regular array.
  *
@@ -32,13 +34,13 @@ public class StackArray {
     assert myStackArray.size() == 3;
   }
 
-  /** Default initial capacity. */
+  /** Default initial capacity.(容量) */
   private static final int DEFAULT_CAPACITY = 10;
 
   /** The max size of the Stack */
   private int maxSize;
 
-  /** The array representation of the Stack */
+  /** The array representation(代表) of the Stack */
   private int[] stackArray;
 
   /** The top of the stack */
@@ -114,6 +116,11 @@ public class StackArray {
     for (int i = 0; i < stackArray.length; i++) {
       transferArray[i] = stackArray[i];
     }
+    /*
+    (2021.7.9)注解：
+    使用数组copy函数 transferArray= Arrays.copyOf(stackArray,maxSize);
+    * */
+
     // This reference change might be nice in here
     stackArray = transferArray;
     maxSize = newSize;
